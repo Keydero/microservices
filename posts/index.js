@@ -5,7 +5,8 @@ app.use(bodyParser.json());
 const { v4: uuidv4 } = require('uuid');
 
 const posts = {};
-
+const cors = require('cors');
+app.use(cors())
 app.get('/posts', (req, res) => {
     res.send(posts);
 });

@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
+const cors = require('cors');
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 
@@ -20,6 +22,9 @@ app.post('/posts/:id/comments', (req, res) => {
     commentsByPostUid[req.params.id] = comments;
     res.status(201).send(comments);
 });
+
+
+
 
 app.listen(4000, () => {
     console.log("Listening port 4000")
